@@ -40,7 +40,7 @@ var publicDir = require('path').join(__dirname,'/uploads');
 app.use('/static',express.static(publicDir)); 
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('client/build'))
+    app.use(express.static('Client/build'))
 }
 
 

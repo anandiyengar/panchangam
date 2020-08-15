@@ -4,8 +4,8 @@
   "description": "Panchangam app",
   "main": "app.js",
   "scripts": {
-    "build": "cd client && run npm build",
-    "install-client": "cd client && npm install",
+    "build": "cd Client && run npm build",
+    "install-client": "cd Client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
     "start": "node app.js"
   },
