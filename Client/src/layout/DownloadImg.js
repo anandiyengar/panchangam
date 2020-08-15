@@ -24,7 +24,7 @@ return(
     <Base>
     <div className="text-center">
     <p  className="text-center">Click on the image to download!</p>
-    <img onClick={download} src={`http://localhost:8000/static/${formId}.png`} style={{width:"100%"}} />
+    <img onClick={download} src={`/static/${formId}.png`} style={{width:"100%"}} />
     </div>
     </Base>
 )

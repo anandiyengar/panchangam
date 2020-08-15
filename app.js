@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const express = require("express")
+const path = require("path")
 require("dotenv")
 const port = process.env.Port || 8000
 const app = express()
@@ -41,7 +42,11 @@ app.use('/static',express.static(publicDir));
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('Client/build'))
+
+    app.get('*', (req,res)=>{
+        res.send(path.resolve(__dirname, 'Client', 'build', 'index.html'))
+    })
 }
 
 
-app.listen(port, '0.0.0.0', () => {console.log("App is up and running on " + port)})
+app.listen(port, () => {console.log("App is up and running on " + port)})
