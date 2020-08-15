@@ -4,7 +4,7 @@ require("dotenv")
 const port = process.env.Port || 8000
 const app = express()
 app.use('/static',express.static("/uploads"))
-mongoose.connect("mongodb://localhost:27017/panchangam",{
+mongoose.connect("mongodb+srv://anandiyengar1993:Anand@1993@cluster0.iyflr.mongodb.net/panchangam",{
     useNewUrlParser:true,
     useCreateIndex:true,
     useUnifiedTopology:true
