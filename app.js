@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const express = require("express")
 const path = require("path")
 require("dotenv")
-const port = process.env.Port || 8000
+const port = process.env.PORT || 8000
 const app = express()
 app.use('/static',express.static("/uploads"))
 mongoose.connect("mongodb+srv://anandiyengar1993:Anand@1993@cluster0.iyflr.mongodb.net/panchangam",{
