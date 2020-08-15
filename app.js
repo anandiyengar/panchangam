@@ -44,4 +44,4 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 
-app.listen(port,, '0.0.0.0', () => {console.log("App is up and running on " + port)})
+app.listen(port, '0.0.0.0', () => {console.log("App is up and running on " + port)})
