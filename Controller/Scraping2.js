@@ -65,7 +65,7 @@ exports.getImage = (req,res) => {
   const formId = req.form._id;
 (async () => {
   const browser = await puppeteer.launch();
-  const desiredUrl = `http://localhost:3000/mob/${formId}`
+  const desiredUrl = `https://mernpanchangam.herokuapp.com/mob/${formId}`
   const page = await browser.newPage();
   await page.setViewport({width: 540, height: 1200,
     deviceScaleFactor: 3});
