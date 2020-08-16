@@ -5,7 +5,6 @@ import { getDateData, submitData, getAllData, getALlUserForms, getDateData1 } fr
 import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
 import { AyanamApi, TithiApi, PaksheApi, TamilMonthAPI, NakshatramApi } from '../helper/ApiArray';
-import { initializeApp } from 'firebase';
 
 const FormNew = () => {
   const VasaramArray = ["Bhanu Vasaram / பானு வாஸரம்",  "Indhu Vasaram / இந்து வாஸரம்","Bouma Vasaram / பௌம வாஸரம்",
