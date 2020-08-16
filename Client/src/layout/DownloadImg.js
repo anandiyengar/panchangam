@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 const DownloadImg = () => {
 const download = () => { 
         axios({ 
-            url:`http://localhost:${process.env.Port || 8000}/static/${formId}.png`, 
+            url:`/static/${formId}.png`, 
             method:'GET', 
             responseType: 'blob' 
     }) 
