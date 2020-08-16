@@ -63,7 +63,7 @@ exports.getFormDetails = (req, res) => {
 exports.getImage = (req,res) => {
   const webshot = require('webshot');
   const formId = req.form._id;
-webshot('https://mernpanchangam.herokuapp.com/#mob/${formId}', `./uploads/panchangam-${formId}.png`, function(err) {
+webshot('https://nagai-panchangam.herokuapp.com/#mob/${formId}', `./uploads/panchangam-${formId}.png`, function(err) {
   if (!err) {
     console.log('Screenshot taken!');
     return res.json({
@@ -88,7 +88,7 @@ exports.getImage1 = (req,res) => {
       '--disable-setuid-sandbox'
     ]
   });
-  const desiredUrl = `https://mernpanchangam.herokuapp.com/#mob/${formId}`
+  const desiredUrl = `https://nagai-panchangam.herokuapp.com/#mob/${formId}`
   const page = await browser.newPage();
   await page.setViewport({width: 540, height: 1200,
     deviceScaleFactor: 3});
