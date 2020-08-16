@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {  Switch, Route, HashRouter } from 'react-router-dom';
 import Home from './component/Home';
 import Login from './component/Login';
 import Form from './component/Form';
@@ -19,7 +19,7 @@ function App() {
     document.body.classList.remove('modal-open')
   },[])
   return (
-    <BrowserRouter>
+    <HashRouter>
     
     <ToastContainer />
     <Switch>
@@ -37,7 +37,7 @@ function App() {
 
 
     </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

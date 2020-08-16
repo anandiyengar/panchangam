@@ -44,7 +44,7 @@ if(process.env.NODE_ENV === 'production'){
     app.use(express.static('Client/build'))
 
     app.get('*', (req,res)=>{
-        res.send(path.resolve(__dirname, 'Client', 'build', 'index.html', '/mob'))
+        res.send(path.resolve(__dirname, 'Client', 'build', 'index.html'))
     })
 }
 
