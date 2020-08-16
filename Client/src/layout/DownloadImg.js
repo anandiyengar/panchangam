@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 const DownloadImg = () => {
 const download = () => { 
         axios({ 
-            url:`/static/${formId}.png`, 
+            url:`https://nagai-panchangam.herokuapp.com/static/${formId}.png`, 
             method:'GET', 
             responseType: 'blob' 
     }) 
