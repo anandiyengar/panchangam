@@ -61,6 +61,24 @@ exports.getFormDetails = (req, res) => {
 }
 
 exports.getImage = (req,res) => {
+  const webshot = require('webshot');
+  const formId = req.form._id;
+webshot('https://mernpanchangam.herokuapp.com/#mob/${formId}', `./uploads/panchangam-${formId}.png`, function(err) {
+  if (!err) {
+    console.log('Screenshot taken!');
+    return res.json({
+      image:""
+    })
+  }else{
+    console.log("error screenshot",err)
+    return res.json({
+      error:err
+    })
+  }
+});
+}
+
+exports.getImage1 = (req,res) => {
   const puppeteer = require('puppeteer');
   const formId = req.form._id;
 (async () => {
@@ -79,11 +97,7 @@ exports.getImage = (req,res) => {
   
   await page.screenshot({path: `uploads/${formId}.png`});
   await browser.close();
-  if(browser.close()){
-    return res.json({
-      image:`static/${formId}.png`
-    })
-  }
+  
 
 })();
 }
