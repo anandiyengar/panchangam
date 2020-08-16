@@ -253,6 +253,7 @@ const dateCall2 = () => {
         if(dta.error){
           
         toast.error("Something went wrong.",{toast:"error"})
+        setLoading(false)
 
         }else{
           toast.success("Data has been saved!",{toast:"success"})

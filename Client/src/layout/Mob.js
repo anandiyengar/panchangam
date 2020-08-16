@@ -51,12 +51,12 @@ return(
    <div className="container" style={{padding:"0",margin:"0",maxWidth:"100%"}}>
    <div className="row">
     <div className="col-md-12" style={{background:"black",paddingTop:"22px"}}>
-        <div className="col-md-12 text-center" style={{background: "#6e0f0f",
+        <div className="col-md-12 text-center" style={{background: "#250c3a",
     color: "white"}}>
             <b>பஞ்சாங்கம் / Panchangam. Compiled By: Nagai Narasimhan (9967504474)</b>
         </div>
         <ul className="listview image-listview media" style={{color: "yellow",borderColor:"orange",
-        background: "#6e0f0f",fontWeight: "700",fontSize:" 0.85rem"}}><li>
+        background: "#250c3a",fontWeight: "700",fontSize:" 0.85rem"}}><li>
     <div class="item">
                         <div className="imageWrapper text-center text-white">
                         <img src="/call.png" alt="cal" style={{width:"80px",height:"75px"}} />
@@ -112,7 +112,7 @@ return(
                 <tr>
                     <td className="bg-cust">பக்ஷ - திதி</td>
                     <td className="bg-cust1">
-                    {datas.Time && nextTithi && datas.Time.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.indexOf('P')!==-1 ? "( மாலை" : ""}   {datas.Time && nextTithi? datas.Time.split(" ")[0] + " வரை) " : ""} 
+                    {datas?.Time?.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.split(" ")[1] === "PM"  ? "( மாலை" : ""}   { datas.Time ? datas?.Time?.split(" ")[0] + " வரை) " : ""} 
                     {datas && datas.Pakshe && (datas.Pakshe.split("/")[1].split(" ")[1])} &nbsp;
                           {datas && datas.Tithi && (datas.Tithi.split("/")[1]).split(" ")[1] } &nbsp;                                              
                           {datas && datas.NextTithi && `பின்னர் ${ datas.NextTithi.split("/")[1].split(" ")[1]}`}&nbsp;
@@ -131,8 +131,8 @@ return(
                 <tr>
                     <td className="bg-cust">நக்ஷத்திரம்</td>
                     <td className="bg-cust1">
-                    {datas.Time2 && nextTithi && datas.Time2.split(" ")[1] === "AM" ? "( காலைc " : ""} {datas?.Time2?.split(" ")[1] === "PM" ? "( மாலை " : ""}
-                     {datas && datas.Time2 ? datas.Time2?.split(" ")[0] + " வரை )  " : "" } &nbsp;
+                    {datas?.Time2?.split(" ")[1] === "AM" ? "( காலைc " : ""} {datas?.Time2?.split(" ")[1] === "PM" ? "( மாலை " : ""}
+                     {datas?.Time2 ? datas?.Time2?.split(" ")[0] + " வரை )  " : "" } &nbsp;
                           {datas && datas.Nakshatram && (datas.Nakshatram.split("/")[1]).split(" ")[1] }&nbsp; 
                          
                           {datas && datas.NextNakshatram && `பின்னர் ${datas.NextNakshatram.split("/")[1].split(" ")[1]}`}&nbsp;
@@ -209,7 +209,7 @@ return(
                       </tr>
                   </tbody>
               </table>
-              <div style={{fontSize:"0.80rem",paddingRight:"10px",paddingLeft:"10px",textAlign:"center",paddingTop:"5px",height:"500px",background:"#6e0000",color:"white"}}>
+              <div style={{fontSize:"0.80rem",paddingRight:"10px",paddingLeft:"10px",textAlign:"center",paddingTop:"5px",height:"500px",background:"#250c3a",color:"white"}}>
               <p style={{lineHeight:"18px"}}>
                  {datas.Note2? datas.Note2.split("/")[1]:"சார்வரி நாம ஸம்வத்ஸரே"}   , {datas.Ayanam?datas.Ayanam.split("/")[1]:"தக்ஷிணாயணே"}, {datas.Ruthou?datas.Ruthou.split("/")[1].trim().split(" ")[0]: ""} , {datas.Mase? datas.Mase.split("/")[1].trim().split(" ")[0]:""} மாஸே , {datas.Pakshe? datas.Pakshe.split("/")[1].trim().split(" ")[0]:""}
                  பக்ஷே,  {tithi? tithi.split("/")[3]: ""}  {datas?.Time?.split(" ")[1] === "AM" ? "( காலை " : ""} {datas?.Time?.split(" ")[1] === "PM" ? "( மாலை " : ""}   {datas.Time && nextTithi? datas.Time.split(" ")[0] + " வரை) பின்னர் " : ""} {nextTithi? ` ${nextTithi.split("/")[3]}`: ""} , சுபதிதௌ {datas.Vasaram ? datas.Vasaram.split("/")[1].trim().split(" ")[0]: ""} 
