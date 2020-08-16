@@ -65,13 +65,13 @@ const EditForm = () => {
                     Dates,Day,TamilMonth,TamilDate,TamilDay,
                     Note1,Note2,Ayanam,Ruthou,Mase,Pakshe,Tithi,
                     Time,Vasaram,Nakshatram,NextNakshatram,Time2,NallaNeram,PM,RaghuKalam,
-                    Yemakandam,Yogam,Chandrashtamam,NextChandrashtamam,Sunrise,TableTithi, Sunset,AdditionalInfo,kuligai, SradTithi
+                    Yemakandam,Yogam,Chandrashtamam,NextChandrashtamam,Sunrise,TableTithi, Sunset,AdditionalInfo,kuligai, SrardTithi
                   } = res
                   setValues({...values, Dates,Day,TamilMonth,TamilDate,TamilDay,
                     Note1,Note2,Ayanam,Ruthou,Mase,Pakshe,Tithi,
                     Time,Vasaram,Nakshatram,NextNakshatram,Time2,NallaNeram,PM,RaghuKalam,
                     Yemakandam,Yogam,Chandrashtamam,NextChandrashtamam,Sunrise,Sunset,AdditionalInfo,kuligai
-                    ,srardTithi:SradTithi, tableTithi:TableTithi
+                    ,srardTithi:SrardTithi, tableTithi:TableTithi
                      })
               }
           )
@@ -236,7 +236,7 @@ onChange={e=>setValues({...values,Note2:e.target.value})}
 </div>
  <div className="form-group boxed">
   <label>Select time: </label>
-<input type="time" className="form-control" value={Time}
+<input type="text" className="form-control" value={Time}
 onChange={e=>setValues({...values,Time:e.target.value})} />
   </div>
    <div className="form-group boxed">
@@ -298,7 +298,7 @@ onChange={e=>setValues({...values,Time:e.target.value})} />
 <div className="col-sm-6">
 	<div className="form-group boxed">
 	<label>Select Time</label>
-<input type="time" className="form-control" name="Time2" value={Time2}
+<input type="text" className="form-control" name="Time2" value={Time2}
 onChange={e=>setValues({...values,Time2:e.target.value})}
 />
 </div>

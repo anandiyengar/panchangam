@@ -131,7 +131,7 @@ return(
                 <tr>
                     <td className="bg-cust">நக்ஷத்திரம்</td>
                     <td className="bg-cust1">
-                    {datas?.Time2?.split(" ")[1] === "AM" ? "( காலைc " : ""} {datas?.Time2?.split(" ")[1] === "PM" ? "( மாலை " : ""}
+                    {datas?.Time2?.split(" ")[1] === "AM" ? "( காலை " : ""} {datas?.Time2?.split(" ")[1] === "PM" ? "( மாலை " : ""}
                      {datas?.Time2 ? datas?.Time2?.split(" ")[0] + " வரை )  " : "" } &nbsp;
                           {datas && datas.Nakshatram && (datas.Nakshatram.split("/")[1]).split(" ")[1] }&nbsp; 
                          
@@ -198,7 +198,12 @@ return(
         <table class="table table-bordered text-center">
                   <tbody>
                       <tr>
-                          <td className="bg-cust" style={{width:"20%"}}>Next Day Event <br /><strong>{additionalInfoState} </strong></td>
+                          <td className="bg-cust" style={{width:"20%"}}>Next Day Event <br /><
+                              strong>{additionalInfoState?.split(",").map((tr)=>(
+                             <Fragment>
+                                 {tr} <br />
+                             </Fragment>
+                          ))} </strong></td>
                           <td className="bg-cust1 text-left"> 
                           {datas && datas.AdditionalInfo && datas.AdditionalInfo.split("|").map((ad)=>(
                             <Fragment>
@@ -211,15 +216,42 @@ return(
               </table>
               <div style={{fontSize:"0.80rem",paddingRight:"10px",paddingLeft:"10px",textAlign:"center",paddingTop:"5px",height:"500px",background:"#250c3a",color:"white"}}>
               <p style={{lineHeight:"18px"}}>
-                 {datas.Note2? datas.Note2.split("/")[1]:"சார்வரி நாம ஸம்வத்ஸரே"}   , {datas.Ayanam?datas.Ayanam.split("/")[1]:"தக்ஷிணாயணே"}, {datas.Ruthou?datas.Ruthou.split("/")[1].trim().split(" ")[0]: ""} , {datas.Mase? datas.Mase.split("/")[1].trim().split(" ")[0]:""} மாஸே , {datas.Pakshe? datas.Pakshe.split("/")[1].trim().split(" ")[0]:""}
-                 பக்ஷே,  {tithi? tithi.split("/")[3]: ""}  {datas?.Time?.split(" ")[1] === "AM" ? "( காலை " : ""} {datas?.Time?.split(" ")[1] === "PM" ? "( மாலை " : ""}   {datas.Time && nextTithi? datas.Time.split(" ")[0] + " வரை) பின்னர் " : ""} {nextTithi? ` ${nextTithi.split("/")[3]}`: ""} , சுபதிதௌ {datas.Vasaram ? datas.Vasaram.split("/")[1].trim().split(" ")[0]: ""} 
-                 வாஸர யுக்தாயாம், {datas.Nakshatram? datas.Nakshatram.split("/")[1].trim().split(' ')[0]: ""}   {datas.Time2 && datas.NextNakshatram && datas?.Time2.split(" ")[1] === "AM" ? "  (காலை" : ""}  {datas?.Time2?.split(" ")[1] === "PM" ? " (மாலை" : ""} {datas.NextNakshatram && datas.Time2?` ${datas.Time2?.split(" ")[0]} வரை ) பின்னர்  `: ""}  {datas.NextNakshatram?` ${datas.NextNakshatram.split("/")[1].trim().split(" ")[0]}`: ''} நக்ஷத்ர
-                  யுக்தாயாம், ஸ்ரீ விஷ்ணு யோக ஸ்ரீ விஷ்ணு கரண ஸுப யோக ஸுப கரண ஏவங்குன விசேஷண
-                   விசிஷ்டாயாம் அஸ்யாம்  {tithi? tithi.split("/")[3]: ""} {datas.Time && nextTithi && datas?.Time?.split(" ")[1] === "AM" ? " ( காலை " : ""}{datas?.Time?.split(" ")[1] === "PM" ? " ( மாலை" : ""} {datas.Time && nextTithi? datas.Time.split(" ")[0] + " வரை ) பின்னர்" : ""}   {nextTithi? nextTithi.split("/")[3]: ""}   சுபதிதௌ ....<br /><br />
-                   {datas.Note2? datas.Note2.split("/")[0]:"சார்வரி நாம ஸம்வத்சரே"}, {datas.Ayanam?datas.Ayanam.split("/")[0]:"தக்ஷிணாயணே"}  {datas.Ruthou?datas.Ruthou.split("/")[0].trim().split(" ")[0]: ""}  Rithou {datas.Mase? datas.Mase.split("/")[0].trim().split(" ")[0]:""}&nbsp;
-                    Mase {datas.Pakshe? datas.Pakshe.split("/")[0].trim().split(" ")[0]:""} Pakshe {tithi? tithi.split("/")[2]: ""} {nextTithi && datas.Time ? `(upto ${datas.Time} )  `: ""} then {nextTithi? nextTithi.split("/")[2]: ""} subhathithou {datas.Vasaram ? datas.Vasaram.split("/")[0].trim().split(" ")[0]: ""} vasara yukhtayām {datas.Nakshatram? datas.Nakshatram.split("/")[0].trim().split(' ')[0]: ""}&nbsp;
-                 {datas.NextNakshatram && datas.Time2?`(upto ${datas.Time2} ) then`: ""} {datas.NextNakshatram?datas.NextNakshatram.split("/")[0].trim().split(" ")[0]: ''} Nakshatra yukhtayām 
-                 Sri Vishnu Yoga, Sri Vishnu Karana, Subha Yoga, Subha Karana Yevanguna Visheshana visishtayam asyam {tithi? tithi.split("/")[2]: ""} {nextTithi && datas.Time ? `(upto ${datas.Time} ) `: ""} then {nextTithi? nextTithi.split("/")[2]: ""} Subhatithou...
+                 {datas.Note2? datas.Note2.split("/")[1]:"சார்வரி நாம ஸம்வத்ஸரே"} ,&nbsp;
+                  {datas.Ayanam?datas.Ayanam.split("/")[1]:"தக்ஷிணாயணே"}, &nbsp;
+                  {datas.Ruthou?datas.Ruthou.split("/")[1].trim().split(" ")[0]: ""} ,&nbsp;
+                   {datas.Mase? datas.Mase.split("/")[1].trim().split(" ")[0]:""} மாஸே ,&nbsp;
+                    {datas.Pakshe? datas.Pakshe.split("/")[1].trim().split(" ")[0]:""}&nbsp;
+                 பக்ஷே,  {datas?.Tithi? datas?.Tithi.split("/")[3]: ""}  {datas?.Time?.split(" ")[1] === "AM" ? "( காலை " : ""}&nbsp;
+                  {datas?.Time?.split(" ")[1] === "PM" ? "( மாலை " : ""}  &nbsp;
+                   {datas?.Time ? datas?.Time?.split(" ")[0] + " வரை) பின்னர் " : ""}&nbsp;
+                    {datas?.NextTithi? ` ${datas?.NextTithi?.split("/")[1].split(" ")[1]}`: ""} ,சுபதிதௌ &nbsp;
+                    {datas?.Vasaram ? datas?.Vasaram?.split("/")[1].trim().split(" ")[0]: ""} &nbsp;
+                 வாஸர யுக்தாயாம், {datas?.Nakshatram? datas?.Nakshatram?.split("/")[1].trim().split(' ')[0]: ""} &nbsp;
+                   {datas.Time2 && datas.NextNakshatram && datas?.Time2.split(" ")[1] === "AM" ? "  (காலை " : ""} 
+                    {datas?.Time2?.split(" ")[1] === "PM" ? " (மாலை " : ""} 
+                    {datas?.NextNakshatram && datas?.Time2?` ${datas.Time2?.split(" ")[0]} வரை ) பின்னர் `: ""} 
+                     {datas?.NextNakshatram?` ${datas?.NextNakshatram.split("/")[1].trim().split(" ")[0]}`: ''} நக்ஷத்ர &nbsp;
+                  யுக்தாயாம், ஸ்ரீ விஷ்ணு யோக ஸ்ரீ விஷ்ணு கரண ஸுப யோக ஸுப கரண ஏவங்குன விசேஷண&nbsp;
+                   விசிஷ்டாயாம் அஸ்யாம்  {datas?.Tithi? datas?.Tithi.split("/")[1].split(" ")[0]: ""} &nbsp;
+                   {datas?.Time && datas?.NextTithi && datas?.Time?.split(" ")[1] === "AM" ? " ( காலை " : ""}&nbsp;
+                   {datas?.Time?.split(" ")[1] === "PM" ? " ( மாலை" : ""}&nbsp;
+                    {datas?.NextTithi? datas?.Time?.split(" ")[0] + " வரை ) பின்னர்" : ""}  &nbsp;
+                     {datas?.NextTithi? datas?.NextTithi.split("/")[1].split(" ")[0]: ""}   சுபதிதௌ ....<br /><br />
+                   {datas.Note2? datas.Note2.split("/")[0]:"சார்வரி நாம ஸம்வத்சரே"}, &nbsp;
+                   {datas.Ayanam?datas.Ayanam.split("/")[0]:"தக்ஷிணாயணே"}  &nbsp;
+                   {datas.Ruthou?datas.Ruthou.split("/")[0].trim().split(" ")[0]: ""}  Rithou&nbsp; 
+                   {datas.Mase? datas.Mase.split("/")[0].trim().split(" ")[0]:""}&nbsp;
+                    Mase {datas.Pakshe? datas.Pakshe.split("/")[0].trim().split(" ")[0]:""} Pakshe &nbsp;
+                    {tithi? tithi?.split("/")[2]: ""} {datas?.Time ? `(upto ${datas?.Time} )  then `: " "}  &nbsp;
+                    {datas?.NextTithi? datas?.NextTithi?.split("/")[0].split(" ")[0]: ""} subhathithou &nbsp; 
+                    {datas.Vasaram ? datas.Vasaram.split("/")[0].trim().split(" ")[0]: ""} &nbsp;
+                     vasara yukhtayām {datas.Nakshatram? datas?.Nakshatram?.split("/")[0].trim().split(' ')[0]: ""}&nbsp;
+                 {datas?.NextNakshatram && datas?.Time2?`(upto ${datas.Time2} ) then`: ""} &nbsp;
+                 {datas.NextNakshatram?datas.NextNakshatram.split("/")[0].trim().split(" ")[0]: ''} Nakshatra yukhtayām 
+                 Sri Vishnu Yoga, Sri Vishnu Karana, Subha Yoga, Subha Karana Yevanguna Visheshana visishtayam asyam 
+                 &nbsp;{tithi? tithi.split("/")[2]: ""} 
+                 {datas?.NextTithi && datas.Time ? `(upto ${datas?.Time} ) then `: ""} {datas?.NextTithi? datas?.NextTithi?.split("/")[0].split(" ")[0]: ""} 
+                 &nbsp; Subhatithou...
                  </p>
 
               </div>

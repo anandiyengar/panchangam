@@ -132,6 +132,7 @@ return(
     <Base>
     {img && (
       <Redirect to={`/download/${img}`} />
+      
     )}
      {loading && (
         <div className="text-center loaddiv">

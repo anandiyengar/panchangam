@@ -87,7 +87,6 @@ exports.getImage = (req,res) => {
       image:`upload/${formId}.png`
     })
   }
-  
 
 })();
 
