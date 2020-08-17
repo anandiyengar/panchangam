@@ -114,8 +114,9 @@ return(
                     {datas?.Time?.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.split(" ")[1] === "PM"  ? "( மாலை" : ""}   { datas.Time ? datas?.Time?.split(" ")[0] + " வரை) " : ""} 
                     {datas && datas?.Pakshe && (datas?.Pakshe?.split("/")[1].split(" ")[1])} &nbsp;
                           {datas && datas.Tithi && (datas.Tithi.split("/")[1]).split(" ")[1] } &nbsp;     
-                          {datas?.NextTithi?.split(" ")[0] === 'Prathamai' ? (datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s')? "க்ருஷ்ண ":"சுக்ல " : ""}                                     
-                          {datas && datas.NextTithi && `பின்னர் ${ datas.NextTithi.split("/")[1].split(" ")[1]}`}&nbsp;
+                          {}                                     
+                          {datas?.NextTithi?.split(" ")[0] === 'Prathamai' ? (datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s' ? " பின்னர் க்ருஷ்ண ":" பின்னர் சுக்ல ") : " பின்னர் "}
+                           {` ${ datas?.NextTithi?.split("/")[1].split(" ")[1]}`}&nbsp;
                     </td>
                 </tr>
                 <tr>
