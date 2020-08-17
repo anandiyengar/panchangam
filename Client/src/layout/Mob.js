@@ -115,7 +115,7 @@ return(
                     {datas?.Time?.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.split(" ")[1] === "PM"  ? "( மாலை" : ""}   { datas.Time ? datas?.Time?.split(" ")[0] + " வரை) " : ""} 
                     {datas && datas?.Pakshe && (datas?.Pakshe?.split("/")[1].split(" ")[1])} &nbsp;
                           {datas && datas.Tithi && (datas.Tithi.split("/")[1]).split(" ")[1] } &nbsp;     
-                          {(datas?.Pakshe.split(" ")[0].toLowerCase()[0]==='s' && datas?.NextTithi?.split(" ")[0] === 'Prathamai')? "க்ருஷ்ண ":"சுக்ல "}                                     
+                          {(datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s' && datas?.NextTithi?.split(" ")[0] === 'Prathamai')? "க்ருஷ்ண ":"சுக்ல "}                                     
                           {datas && datas.NextTithi && `பின்னர் ${ datas.NextTithi.split("/")[1].split(" ")[1]}`}&nbsp;
                     </td>
                 </tr>
@@ -126,7 +126,7 @@ return(
                                {datas && datas.Tithi && datas.Tithi.split(" ")[0] } &nbsp;
                                {datas && `(upto ${datas.Time}`} &nbsp;
                                {datas && datas.NextTithi && ") then"}&nbsp;
-                               {(datas?.Pakshe.split(" ")[0].toLowerCase()[0]==='s' && datas?.NextTithi?.split(" ")[0] === 'Prathamai') ?"Krishna ":"Shukla "}   
+                               {(datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s' && datas?.NextTithi?.split(" ")[0] === 'Prathamai') ?"Krishna ":"Shukla "}   
                                {datas && datas.NextTithi && datas.NextTithi.split(" ")[0] }&nbsp;
                     </td>
                 </tr>
