@@ -5,7 +5,7 @@ import { Link, Redirect } from 'react-router-dom';
 import Base from '../layout/Base';
 import { getALlUserForms, removeForm, downloadForm } from '../helper/AllHelp';
 import { FaDownload, FaEdit, FaTrash } from 'react-icons/fa'
-
+import "../App.css"
 const FormList = () => {
     const TextField = styled.input`
         height: 32px;
@@ -78,16 +78,16 @@ const columns = [
     selector: 'TamilMonth',
     sortable: true,
   },
-  {        cell: row => (<div style = {{width:"50px"}}>
-    <button id = {row._id} onClick = {() => downloadLogic(row._id)} className = "btn btn-success btn-sm text-center text-white">
+  {        cell: row => (<div className = "col-md-12" style = {{width:"400px"}}>
+    <button id = {row._id} onClick = {() => downloadLogic(row._id)} className = "btn fr btn-success btn-sm text-center text-white">
     <FaDownload />
   </button>
-<Link id = {row._id} className = "btn btn-info btn-sm text-center text-white" to = {`/form/edit/${row._id}`}>
+<Link id = {row._id} className = "btn btn-info btn-sm fr text-center text-white" to = {`/form/edit/${row._id}`}>
     <FaEdit />
   </Link>
   <button id = {row._id} onClick = {() => removeForm(row._id).then((res)=>{
   setReload(!reload)
-})} className = "btn btn-danger btn-sm text-center text-white">
+})} className = "btn btn-danger btn-sm fr text-center text-white">
   <FaTrash />
 
 </button></div>

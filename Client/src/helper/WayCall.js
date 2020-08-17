@@ -14,7 +14,7 @@ exports.TithiCall = [
     "Trayodasi thithi/திரயோதசி திதி/Trayodasyam/ திரயோதச்யாம்/12",
     "Chaturdashi thithi/சதுர்த்தசி திதி/Chaturdasyam/ சதுர்த்தச்யாம்/13",
     "Pournami thithi/பொளர்ணமி திதி/Pournamasyam/ பௌர்ணமாஸ்யாம்/14",
-    "Amavasai thithi/அமாவாஸ்யை திதி/Amavasyayam/ அமாவாஸ்யாயாம்/15"
+    "Amavasyai thithi/அமாவாஸ்யை திதி/Amavasyayam/ அமாவாஸ்யாயாம்/15"
 ]
 
 exports.AyanamCall = [

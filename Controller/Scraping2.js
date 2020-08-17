@@ -72,7 +72,7 @@ exports.getImage = (req,res) => {
       '--disable-setuid-sandbox'
     ]
   });
-  const desiredUrl = `https://nagai-panchangam.herokuapp.com/#mob/${formId}`
+  const desiredUrl = `http://nagai-panchangam.herokuapp.com/#mob/${formId}`
   const page = await browser.newPage();
   await page.setViewport({width: 540, height: 1200,
     deviceScaleFactor: 3});
