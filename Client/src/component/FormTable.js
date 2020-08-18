@@ -78,19 +78,29 @@ const columns = [
     selector: 'TamilMonth',
     sortable: true,
   },
-  {        cell: row => (<div className = "col-md-12" style = {{width:"400px"}}>
+  {        cell: row => (
+    <Link id = {row._id} className = "btn btn-dark btn-sm fr text-center text-white" to = {`/text/${row._id}`}>
+    Text
+  </Link>)
+  ,
+button:true,},{ cell: row => (
     <button id = {row._id} onClick = {() => downloadLogic(row._id)} className = "btn fr btn-success btn-sm text-center text-white">
     <FaDownload />
-  </button>
+  </button>),
+button:true,},{
+  cell: row => (
 <Link id = {row._id} className = "btn btn-info btn-sm fr text-center text-white" to = {`/form/edit/${row._id}`}>
     <FaEdit />
-  </Link>
+  </Link> )
+  ,
+  button:true,},{
+    cell: row => (
   <button id = {row._id} onClick = {() => removeForm(row._id).then((res)=>{
   setReload(!reload)
 })} className = "btn btn-danger btn-sm fr text-center text-white">
   <FaTrash />
 
-</button></div>
+</button>
 ),
 button:true,},
 

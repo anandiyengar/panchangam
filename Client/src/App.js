@@ -12,6 +12,8 @@ import FormList from './component/FormTable';
 import ImgFinal from './layout/ImgFinal';
 import FormNew from './component/FormNew';
 import Mob from './layout/Mob';
+import TextView from './layout/TextView';
+
 import DownloadImg from './layout/DownloadImg';
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
       <PrivateRoute exact path="/" component={Home} />
       <Route exact path="/view/:formId" component={ImgFinal} />
       <Route exact path="/mob/:formId" component={Mob} />
+      <Route exact path="/text/:formId" component={TextView} />
+
 
 
       <Route exact path="/login" component={Login} />
