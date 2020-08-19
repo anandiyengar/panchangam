@@ -80,7 +80,7 @@ return(
                    {datas && datas.TamilDate } 
                     <div style={{    paddingTop: "0.45rem"}}></div>
 
-                   {datas && datas.Note2 && (datas.Note2.split("/")[1]).split(" ")[0]} ௵, 
+                   {datas && datas.Note2 && (datas.Note2.split("/")[1])?.split(" ")[0]} ௵, 
                     {daksh && daksh.split("/")[1]}, 
                     {datas && datas.Ruthou && (datas.Ruthou.split("/")[1])}
                      ,<br /> {datas && datas.Mase && datas.Mase.split("/")[1]},&nbsp;
@@ -112,11 +112,11 @@ return(
                     <td className="bg-cust">பக்ஷ - திதி</td>
                     <td className="bg-cust1">
                     {datas?.Time?.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.split(" ")[1] === "PM"  ? "( மாலை" : ""}   { datas.Time ? datas?.Time?.split(" ")[0] + " வரை) " : ""} 
-                    {datas && datas?.Pakshe && (datas?.Pakshe?.split("/")[1].split(" ")[1])} &nbsp;
-                          {datas && datas.Tithi && (datas.Tithi.split("/")[1]).split(" ")[1] } &nbsp;     
+                    {datas && datas?.Pakshe && (datas?.Pakshe?.split("/")[1]?.split(" ")[1])} &nbsp;
+                          {datas && datas.Tithi && (datas.Tithi.split("/")[1])?.split(" ")[1] } &nbsp;     
                           {}                                     
                           {datas?.NextTithi?.split(" ")[0] === 'Prathamai' ? (datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s' ? " பின்னர் க்ருஷ்ண ":" பின்னர் சுக்ல ") : " பின்னர் "}
-                           {` ${ datas?.NextTithi?.split("/")[1].split(" ")[1]}`}&nbsp;
+                           {` ${ datas?.NextTithi?.split("/")[1]?.split(" ")[1]}`}&nbsp;
                     </td>
                 </tr>
                 <tr>
@@ -137,7 +137,7 @@ return(
                      {datas?.Time2 ? datas?.Time2?.split(" ")[0] + " வரை )  " : "" } &nbsp;
                           {datas && datas.Nakshatram && (datas.Nakshatram.split("/")[1]).split(" ")[1] }&nbsp; 
                          
-                          {datas && datas.NextNakshatram && `பின்னர் ${datas.NextNakshatram.split("/")[1].split(" ")[1]}`}&nbsp;
+                          {datas && datas.NextNakshatram && `பின்னர் ${datas.NextNakshatram.split("/")[1]?.split(" ")[1]}`}&nbsp;
                     </td>
                 </tr>
                 <tr>
@@ -221,18 +221,18 @@ return(
                  {datas.Note2? datas.Note2.split("/")[1]:"சார்வரி நாம ஸம்வத்ஸரே"} ,&nbsp;
                   {datas.Ayanam?datas.Ayanam.split("/")[1]:"தக்ஷிணாயணே"}, &nbsp;
                   {datas.Ruthou?datas.Ruthou.split("/")[1].trim().split(" ")[0]: ""} ,&nbsp;
-                   {datas.Mase? datas.Mase.split("/")[1].trim().split(" ")[0]:""} மாஸே ,&nbsp;
-                    {datas.Pakshe? datas.Pakshe.split("/")[1].trim().split(" ")[0]:""}&nbsp;
+                   {datas.Mase? datas.Mase.split("/")[1]?.trim()?.split(" ")[0]:""} மாஸே ,&nbsp;
+                    {datas.Pakshe? datas.Pakshe.split("/")[1]?.trim()?.split(" ")[0]:""}&nbsp;
                  பக்ஷே,  {tithi? tithi.split("/")[3]: ""}  {datas?.Time?.split(" ")[1] === "AM" ? "( காலை " : ""}&nbsp;
                   {datas?.Time?.split(" ")[1] === "PM" ? "( மாலை " : ""}  &nbsp;
                    {datas?.Time ? datas?.Time?.split(" ")[0] + " வரை) பின்னர் " : ""}&nbsp;
                    {nextTithi? nextTithi?.split("/")[3]:""} ,சுபதிதௌ &nbsp;
-                    {datas?.Vasaram ? datas?.Vasaram?.split("/")[1].trim().split(" ")[0]: ""} &nbsp;
-                 வாஸர யுக்தாயாம், {datas?.Nakshatram? datas?.Nakshatram?.split("/")[1].trim().split(' ')[0]: ""} &nbsp;
+                    {datas?.Vasaram ? datas?.Vasaram?.split("/")[1]?.trim()?.split(" ")[0]: ""} &nbsp;
+                 வாஸர யுக்தாயாம், {datas?.Nakshatram? datas?.Nakshatram?.split("/")[1]?.trim()?.split(' ')[0]: ""} &nbsp;
                    {datas.Time2 && datas.NextNakshatram && datas?.Time2.split(" ")[1] === "AM" ? "  (காலை " : ""} 
                     {datas?.Time2?.split(" ")[1] === "PM" ? " (மாலை " : ""} 
                     {datas?.NextNakshatram && datas?.Time2?` ${datas.Time2?.split(" ")[0]} வரை ) பின்னர் `: ""} 
-                     {datas?.NextNakshatram?` ${datas?.NextNakshatram.split("/")[1].trim().split(" ")[0]}`: ''} நக்ஷத்ர &nbsp;
+                     {datas?.NextNakshatram?` ${datas?.NextNakshatram.split("/")[1]?.trim()?.split(" ")[0]}`: ''} நக்ஷத்ர &nbsp;
                   யுக்தாயாம், ஸ்ரீ விஷ்ணு யோக ஸ்ரீ விஷ்ணு கரண ஸுப யோக ஸுப கரண ஏவங்குன விசேஷண&nbsp;
                    விசிஷ்டாயாம் அஸ்யாம்   {tithi? tithi.split("/")[3]: ""}  &nbsp;
                    {datas?.Time && datas?.NextTithi && datas?.Time?.split(" ")[1] === "AM" ? " ( காலை " : ""}&nbsp;
@@ -246,10 +246,10 @@ return(
                     Mase {datas.Pakshe? datas.Pakshe.split("/")[0].trim().split(" ")[0]:""} Pakshe &nbsp;
                     {tithi? tithi?.split("/")[2]: ""} {datas?.Time ? `(upto ${datas?.Time} )  then `: " "}  &nbsp;
                     {nextTithi? nextTithi?.split("/")[2]:""} subhathithou &nbsp; 
-                    {datas.Vasaram ? datas.Vasaram.split("/")[0].trim().split(" ")[0]: ""} &nbsp;
-                     vasara yukhtayām {datas.Nakshatram? datas?.Nakshatram?.split("/")[0].trim().split(' ')[0]: ""}&nbsp;
+                    {datas.Vasaram ? datas.Vasaram.split("/")[0]?.trim()?.split(" ")[0]: ""} &nbsp;
+                     vasara yukhtayām {datas.Nakshatram? datas?.Nakshatram?.split("/")[0]?.trim()?.split(' ')[0]: ""}&nbsp;
                  {datas?.NextNakshatram && datas?.Time2?`(upto ${datas.Time2} ) then `: ""} 
-                 {datas.NextNakshatram?datas.NextNakshatram.split("/")[0].trim().split(" ")[0]: ''} Nakshatra yukhtayām 
+                 {datas.NextNakshatram?datas.NextNakshatram.split("/")[0]?.trim()?.split(" ")[0]: ''} Nakshatra yukhtayām 
                  Sri Vishnu Yoga, Sri Vishnu Karana, Subha Yoga, Subha Karana Yevanguna Visheshana visishtayam asyam 
                  &nbsp;{tithi? tithi.split("/")[2]: ""} 
                  {datas?.NextTithi && datas.Time ? `(upto ${datas?.Time} ) then `: ""} {nextTithi? nextTithi?.split("/")[2]:""} 

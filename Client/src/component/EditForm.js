@@ -168,6 +168,7 @@ const EditForm = () => {
    <option>Tithidwayam/திதித்வயம்</option>
    <option></option>
   </select>
+  
 </div> 
 
 <div className="form-group boxed">
@@ -233,6 +234,7 @@ onChange={e=>setValues({...values,Note2:e.target.value})}
      <option key={Index}>{ta}</option>
    ))}
   </select>
+  <span>Current Tithi: {Tithi}</span>
 </div>
  <div className="form-group boxed">
   <label>Select time: </label>
@@ -248,6 +250,7 @@ onChange={e=>setValues({...values,Time:e.target.value})} />
      <option key={Index}>{ta}</option>
    ))}
   </select>
+  <span>Current next Tithi: {NextTithi}</span>
 </div>
 
 <div className="form-group boxed">
@@ -293,6 +296,7 @@ onChange={e=>setValues({...values,Time:e.target.value})} />
       element[Index+1]):(element[0]))} key={Index}>{ta}</option>
    ))}
   </select>
+     <span>Current nakshatram: {Nakshatram}</span>
 </div>
 </div>
 <div className="col-sm-6">
@@ -306,7 +310,9 @@ onChange={e=>setValues({...values,Time2:e.target.value})}
 </div>
 <div className="form-group boxed">
 	<label>Next Nakashtram</label>
+
 <input type="text" name="a14" className="form-control" value={NextNakshatram} onChange ={e => setValues({...values, NextNakshatram:e.target.value})}/>
+     <span>Current next nakshatram: {NextNakshatram}</span>
 </div>
 
 
@@ -352,13 +358,14 @@ onChange={e=>setValues({...values,kuligai:e.target.value})}
       element[Index+1]):(element[0]))} key={Index}>{ta}</option>
    ))}
   </select>
+     <span>Current Chandrashtamam: {Chandrashtamam}</span>
 </div>
 
 <div className="form-group boxed">
 <input type="text" className="form-control" value={NextChandrashtamam} onChange = {e =>{
   setValues({...values, NextChandrashtamam:e.target.value})
   console.log(Chandrashtamam)} }/>
-
+  <span>Current Next Chandrashtamam :{NextChandrashtamam}</span>
 </div>
 
 <div className="form-group boxed">
