@@ -40,7 +40,7 @@ const Mob = () => {
             nextDay.setDate(nextDay.getDate()+1);
             setAdditionalInfoState(week_of_day_arr[nextDay.getDay()] + ", " + nextDay.getDate() + " " + montharray[nextDay.getMonth()])
     
-            
+            console.log("TIME ",datas.Time)
         }).catch((err)=>{
             console.log(err)
         })
@@ -111,12 +111,12 @@ return(
                 <tr>
                     <td className="bg-cust">பக்ஷ - திதி</td>
                     <td className="bg-cust1">
-                    {datas?.Time?.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.split(" ")[1] === "PM"  ? "( மாலை" : ""}   { datas.Time ? datas?.Time?.split(" ")[0] + " வரை) " : ""} 
+                    {datas?.Time?.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.split(" ")[1] === "PM"  ? "( மாலை" : ""}   { datas?.Time ? `${datas?.Time?.split(" ")[0]} ${datas.time && "வரை)"}`: ""} 
                     {datas && datas?.Pakshe && (datas?.Pakshe?.split("/")[1]?.split(" ")[1])} &nbsp;
                           {datas && datas.Tithi && (datas.Tithi.split("/")[1])?.split(" ")[1] } &nbsp;     
                           {}                                     
-                          {datas?.NextTithi?.split(" ")[0] === 'Prathamai' ? (datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s' ? " பின்னர் க்ருஷ்ண ":" பின்னர் சுக்ல ") : " பின்னர் "}
-                           {` ${ datas?.NextTithi?.split("/")[1]?.split(" ")[1]}`}&nbsp;
+                          {datas && datas.NextTithi && datas?.NextTithi?.split(" ")[0] === 'Prathamai' ? (datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s' ? " பின்னர் க்ருஷ்ண ":" பின்னர் சுக்ல ") : ""}
+                           {datas?.NextTithi?.split("/")[1]?.split(" ")[1]? `பின்னர் ${datas?.NextTithi.split("/")[1]?.split(" ")[1]}` :""}&nbsp;
                     </td>
                 </tr>
                 <tr>
@@ -124,7 +124,7 @@ return(
                     <td className="bg-cust1">
                     {datas && datas.Pakshe && datas.Pakshe.split(" ")[0] } &nbsp;
                                {datas && datas.Tithi && datas.Tithi.split(" ")[0] } &nbsp;
-                               {datas && `(upto ${datas.Time}`} &nbsp;
+                               {datas?.NextTithi?.trim() && datas?.Time? `(upto ${datas.Time}`: ""} &nbsp;
                                {datas && datas.NextTithi && ") then"}&nbsp;
                                {datas?.NextTithi?.split(" ")[0] === 'Prathamai' ? (datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s') ?"Krishna ":"Shukla ":""}   
                                {datas && datas.NextTithi && datas.NextTithi.split(" ")[0] }&nbsp;
