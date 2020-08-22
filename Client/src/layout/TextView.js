@@ -57,14 +57,14 @@ return(
 *******************************<br />
 {datas && datas.Dates && montharray[new Date(datas.Dates).getMonth()]},
 {datas && datas.Dates && datas.Dates.split("-")[2]} -
-{datas && datas.Day} / {datas?.TamilDay?.split("/")[1]} {datas?.TamilDay?" ":""}      <br />
+{datas && datas.Day}      <br />
 
-{datas && datas.Note2 && datas.Note2.split(" ")[0]}&nbsp; 
-                   Year, {daksh && daksh.split("/")[0]},
-                    {datas && datas.Ruthou && datas.Ruthou.split(" ")[0]} Rithou, &nbsp;
+{datas && datas?.Note2 && datas?.Note2?.split(" ")[0]}&nbsp; 
+                   Year, {daksh && daksh?.split("/")[0]},
+                    {datas && datas.Ruthou && datas?.Ruthou?.split(" ")[0]} Rithou, &nbsp;
                    {datas && datas.Mase && datas.Mase.split(" ")[0]}&nbsp; Masam,
                     {datas && datas.TamilMonth && datas.TamilMonth.split("/")[0]}&nbsp; -&nbsp;
-                   {datas && datas.TamilDate } <br />
+                   {datas && datas.TamilDate } <br /> <br />
 
 
 
@@ -95,14 +95,14 @@ Sradha Tithi /  ஸ்ராத்த  திதி : {datas && datas.SrardTithi
                           {datas?.NextTithi?.split(" ")[0] === 'Prathamai' ? 
                           (datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s' ? 
                           " பின்னர் க்ருஷ்ண ":" பின்னர் சுக்ல ") : " பின்னர் "}
-                           {` ${ datas?.NextTithi?.split("/")[1]?.split(" ")[1]}`}&nbsp;<br />  
+                           {` ${ datas?.NextTithi?.split("/")[1]?.split(" ")[1]}`}&nbsp;<br />  <br />
 
                            *நக்ஷத்திரம்*<br />
  {datas?.Time2?.split(" ")[1] === "AM" ? "( காலை " : ""} {datas?.Time2?.split(" ")[1] === "PM" ? "( மாலை " : ""}
                      {datas?.Time2 ? datas?.Time2?.split(" ")[0] + " வரை )  " : "" } &nbsp;
                           {datas && datas.Nakshatram && (datas.Nakshatram.split("/")[1]).split(" ")[1] }&nbsp; 
                  {datas && datas.NextNakshatram && `பின்னர் ${datas.NextNakshatram.split("/")[1].split(" ")[1]}`}&nbsp;
-  <br />
+  <br /><br />
 *-----------------------*<br />
 *Paksha - Tithi*<br />
  {datas && datas.Pakshe && datas.Pakshe.split(" ")[0] } &nbsp;
@@ -110,36 +110,39 @@ Sradha Tithi /  ஸ்ராத்த  திதி : {datas && datas.SrardTithi
                                {datas && `(upto ${datas.Time}`} &nbsp;
                                {datas && datas.NextTithi && ") then"}&nbsp;
                                {datas?.NextTithi?.split(" ")[0] === 'Prathamai' ? (datas?.Pakshe?.split(" ")[0].toLowerCase()[0]==='s') ?"Krishna ":"Shukla ":""}   
-                               {datas && datas.NextTithi && datas.NextTithi.split(" ")[0] }&nbsp;<br />
+                               {datas && datas.NextTithi && datas.NextTithi.split(" ")[0] }&nbsp;<br /><br />
 
   *Nakshatram*<br />
  {datas && datas.Nakshatram && (datas.Nakshatram.split(" ")[0])}&nbsp;
                           &nbsp; {datas && datas.Time2 && `(upto ${datas.Time2.split(" ")[0]}`}&nbsp;
                           {datas && datas.NextNakshatram && ") then"}&nbsp;
-                          {datas && datas.NextNakshatram && (`${datas.NextNakshatram.split(" ")[0]}`)}&nbsp;<br />    
+                          {datas && datas.NextNakshatram && (`${datas.NextNakshatram.split(" ")[0]}`)}&nbsp;<br />   <br /> 
  *----------------------*<br />      
  *Raghu Kaalam/ராகு காலம்*<br />
- {datas && datas.RaghuKalam}<br />
+ {datas && datas.RaghuKalam}<br /><br />
 *Yemakandam/எமகண்டம்*<br />
-{datas && datas.Yemakandam}<br />
+{datas && datas.Yemakandam}<br /><br />
 *Kuligai/குளிகை*<br />
-{datas && datas.kuligai}<br />
+{datas && datas.kuligai}<br /><br />
 *Yogam/யோகம்*<br />
-{datas && datas.Yogam}<br />
+{datas && datas.Yogam}<br /><br />
 *Chandrashtamam/சந்த்ராஷ்டமம்*<br />
 {datas && datas.Chandrashtamam}<br />
-{datas && datas.NextChandrashtamam}<br />
+{datas && datas.NextChandrashtamam}<br /><br />
 *Nalla Neram/நல்ல நேரம்*<br />
 {datas && datas.NallaNeram}<br />
-{datas && datas.PM}<br />
+{datas && datas.PM}<br /><br />
 *Sunrise / சூர்யோதயம்*<br />
-{datas && datas.Sunrise}<br />
+{datas && datas.Sunrise}<br /><br />
 *Sunset / அஸ்தமனம்*<br />
-{datas && datas.Sunset}<br />
+{datas && datas.Sunset}<br /><br />
 
-*------------------------*<br />      
+*==================================*<br />
+*TODAY'S SANKALPAM*<br />
+*இன்றைய சங்கல்பம்*<br />
+*==================================*   <br />
 <p style={{lineHeight:"18px"}}>*
-                 {datas.Note2? datas.Note2.split("/")[1]:"சார்வரி நாம ஸம்வத்ஸரே"} ,&nbsp;
+                 {datas?.Note2? datas?.Note2?.split("/")[1]:"சார்வரி நாம ஸம்வத்ஸரே"} ,&nbsp;
                   {datas.Ayanam?datas.Ayanam.split("/")[1]:"தக்ஷிணாயணே"}, &nbsp;
                   {datas.Ruthou?datas.Ruthou.split("/")[1]?.trim()?.split(" ")[0]: ""} ,&nbsp;
                    {datas.Mase? datas.Mase.split("/")[1].trim().split(" ")[0]:""} மாஸே ,&nbsp;
@@ -176,18 +179,18 @@ Sradha Tithi /  ஸ்ராத்த  திதி : {datas && datas.SrardTithi
                  {datas?.NextTithi && datas.Time ? `(upto ${datas?.Time} ) then `: ""} {nextTithi? nextTithi?.split("/")[2]:""} 
                  &nbsp; Subhatithou...*
                  </p>
-*------------------------*<br />      
+*------------------------*<br />   
 *Next Day Sradha Tithi* <br />*அடுத்த நாள் ஸ்ராத்த  திதி*<br />
 {datas && datas.TableTithi?.split("/")[0]} <br /> 
 {datas && datas.TableTithi?.split("/")[1]}<br />
-*======================*<br />      
+*======================*<br />      <br />
 *NEXT DAY EVENT*<br />
 <strong>{additionalInfoState?.split(",").map((tr)=>(
                              <Fragment>
                                  {tr} <br />
                              </Fragment>
                           ))} </strong>
-*======================*<br />      
+*======================*<br />     
 {datas && datas.AdditionalInfo && datas.AdditionalInfo.split("|").map((ad)=>(
                             <Fragment>
                                 {ad} <br />
