@@ -137,10 +137,10 @@ Sradha Tithi /  ஸ்ராத்த  திதி : {datas && datas.SrardTithi
 *Sunset / அஸ்தமனம்*<br />
 {datas && datas.Sunset}<br /><br />
 
-*==================================*<br />
+*==============================*<br />
 *TODAY'S SANKALPAM*<br />
 *இன்றைய சங்கல்பம்*<br />
-*==================================*   <br />
+*==============================*   <br />
 <p style={{lineHeight:"18px"}}>*
                  {datas?.Note2? datas?.Note2?.split("/")[1]:"சார்வரி நாம ஸம்வத்ஸரே"} ,&nbsp;
                   {datas.Ayanam?datas.Ayanam.split("/")[1]:"தக்ஷிணாயணே"}, &nbsp;
