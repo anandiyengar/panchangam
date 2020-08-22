@@ -102,7 +102,7 @@ Sradha Tithi /  ஸ்ராத்த  திதி : {datas && datas.SrardTithi
                      {datas?.Time2 ? datas?.Time2?.split(" ")[0] + " வரை )  " : "" } &nbsp;
                           {datas && datas.Nakshatram && (datas.Nakshatram.split("/")[1]).split(" ")[1] }&nbsp; 
                  {datas && datas.NextNakshatram && `பின்னர் ${datas.NextNakshatram.split("/")[1].split(" ")[1]}`}&nbsp;
-  <br /><br />
+  <br />
 *-----------------------*<br />
 *Paksha - Tithi*<br />
  {datas && datas.Pakshe && datas.Pakshe.split(" ")[0] } &nbsp;
@@ -183,7 +183,7 @@ Sradha Tithi /  ஸ்ராத்த  திதி : {datas && datas.SrardTithi
 *Next Day Sradha Tithi* <br />*அடுத்த நாள் ஸ்ராத்த  திதி*<br />
 {datas && datas.TableTithi?.split("/")[0]} <br /> 
 {datas && datas.TableTithi?.split("/")[1]}<br />
-*======================*<br />      <br />
+*======================*<br />     
 *NEXT DAY EVENT*<br />
 <strong>{additionalInfoState?.split(",").map((tr)=>(
                              <Fragment>
