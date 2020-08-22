@@ -71,7 +71,7 @@ return(
                    {datas && datas.Note2 && (datas.Note2.split("/")[1]).split(" ")[0]} ௵, 
                     {daksh && daksh.split("/")[1]}, 
                     {datas && datas.Ruthou && (datas.Ruthou.split("/")[1])}
-                     ,{datas && datas.Mase && datas.Mase.split("/")[1]},&nbsp;
+                     ,{datas && datas.Mase && datas.Mase.split("/")[1]},&nbsp;<br />
                      {datas && datas.TamilMonth && datas.TamilMonth.split("/")[1]}&nbsp;
                       - &nbsp;
                       {datas && datas.TamilDate } , {datas?.TamilDay?.split("/")[1]} {datas?.TamilDay?" ":""}<br />
@@ -200,6 +200,7 @@ Sradha Tithi /  ஸ்ராத்த  திதி : {datas && datas.SrardTithi
 <b>*Compiled By:*<br />
 *Nagai Narasimhan* <br />
 *நாகை  ந்ருஸிம்ஹன்* <br />
+*Ph no. +91 9967504474*
 </b>
 
                                           </div>
