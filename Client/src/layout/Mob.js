@@ -111,7 +111,7 @@ return(
                 <tr>
                     <td className="bg-cust">பக்ஷ - திதி</td>
                     <td className="bg-cust1">
-                    {datas?.Time?.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.split(" ")[1] === "PM"  ? "( மாலை" : ""}   { datas?.Time ? `${datas?.Time?.split(" ")[0]} ${datas.time && "வரை)"}`: ""} 
+                    {datas?.Time?.split(" ")[1] === "AM" ? " (காலை" : ""} {datas?.Time?.split(" ")[1] === "PM"  ? "( மாலை" : ""}   { datas?.Time ? `${datas?.Time?.split(" ")[0]}  வரை) `: ""} 
                     {datas && datas?.Pakshe && (datas?.Pakshe?.split("/")[1]?.split(" ")[1])} &nbsp;
                           {datas && datas.Tithi && (datas.Tithi.split("/")[1])?.split(" ")[1] } &nbsp;     
                           {}                                     
