@@ -13,7 +13,7 @@ export const TamilMonthAPI = ["Chithirai/0",
 ]
 
 export const AyanamApi = ["Dakshinayanam/0",
-"Uttarayan/1"
+"Uttarayanam/1"
 ]
 
 export const PaksheApi = ["Krishna/0",
