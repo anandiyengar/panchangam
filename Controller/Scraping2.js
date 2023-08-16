@@ -1,7 +1,6 @@
 const request = require('request-promise');
 const cheerio = require('cheerio');
 const { html } = require('cheerio');
-const request = require('request');
 
 const BASE_URL = 'https://calendar.goldenchennai.com/tamil-daily-calendar/';
 
