@@ -23,5 +23,12 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "uuid": "^8.3.0"
+<<<<<<< HEAD
+=======
+  },
+  "engines": {
+    "node": "12.16.2",
+    "npm": "6.14.4"
+>>>>>>> 1dad5c1f77e66f0bb8db02d940f8384c8db69bc4
   }
 }
