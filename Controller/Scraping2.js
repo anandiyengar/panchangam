@@ -68,7 +68,9 @@ exports.getDetails = async (req, res, next, dateId) => {
       
         const panchang = await getPanchang(accessToken, location, dateN);
         console.log(panchang);
-
+      }
+      main()
+      
     const extractData = (selector, index) => {
       const data = $(selector).eq(index).text().trim();
       return data || '';
@@ -114,7 +116,6 @@ req.details = {
 }
 // API CALL
 
-console.log()
   }
 catch (err){
   console.log(err)
