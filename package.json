@@ -4,11 +4,7 @@
   "description": "Panchangam app",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "server": "nodemon app.js",
-    "Client": "npm start --prefix Client",
-    "dev": "concurrently \"npm run server\" \"npm run Client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix Client && npm run build --prefix Client"
+    "start": "nodemon app.js"
   },
   "author": "Anand",
   "license": "ISC",
@@ -27,10 +23,5 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "uuid": "^8.3.0"
-    
-  },
-  "engines": {
-    "node": "12.16.2",
-    "npm": "6.14.4"
   }
 }
