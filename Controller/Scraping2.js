@@ -31,6 +31,7 @@ exports.getDetails = async (req, res, next, dateId) => {
       
         if (response.statusCode === 200) {
           const data = JSON.parse(response.body);
+          console.log("hhh",data)
           return data.access_token;
         } else {
           throw new Error(response.statusMessage);
@@ -70,7 +71,7 @@ exports.getDetails = async (req, res, next, dateId) => {
         console.log(panchang);
       }
       main()
-      
+
     const extractData = (selector, index) => {
       const data = $(selector).eq(index).text().trim();
       return data || '';
