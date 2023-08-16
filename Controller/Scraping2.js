@@ -16,9 +16,10 @@ exports.getDetails = async (req, res, next, dateId) => {
     /* Start processing the response */
     let $ = cheerio.load(response);
   
-     const extractData = (selector, index) =>
-      $(selector).text().split('\n').filter(item => item.trim() !== '' && item !== '-' && item !== '  ')[index];
-
+   const extractData = (selector, index) => {
+  const data = $(selector).text().split('\n').filter(item => item.trim() !== '' && item !== '-' && item !== '  ')[index];
+  return data !== undefined ? data.trim() : ''; // Apply .trim() only if data is defined
+};
     const header = $('.list-wrapper').text().split('\n').filter(item => item.trim() !== '' && item !== '-' && item !== '  ');
 
     /* Parse details from the html with query selectors */
