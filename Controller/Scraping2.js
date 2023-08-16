@@ -60,7 +60,28 @@ req.details = {
       nextChandrashatama: extractData('.panchang-data-chandrashtama', 1).split(' , ')[1] || '',
    
 }
-
+console.log({Sunrise: header[5],
+      Sunset: header[7],
+      Ayanam: header[13],
+      day: dayData,
+      TamilMonth: TamilMonth,
+      date: date,
+      Paksham: extractData('.panchang-data-tithi', 1).split(' ')[0],
+      tithi: extractData('.panchang-data-tithi', 1).split(' ')[2],
+      tithiTime: extractData('.panchang-data-tithi', 2).split(' ')[6] + '|' + extractData('.panchang-data-tithi', 2).split(' ')[7] + ' ' + extractData('.panchang-data-tithi', 2).split(' ')[8],
+      NextTithi: extractData('.panchang-data-tithi', 3).split(' ')[2] || '',
+      nexttithiTime: extractData('.panchang-data-tithi', 4).split(' ')[6] + '|' + extractData('.panchang-data-tithi', 4).split(' ')[7] + ' ' + extractData('.panchang-data-tithi', 4).split(' ')[8] || '',
+      Nakshatram: extractData('.panchang-data-nakshatra', 1),
+      nakshatraTime: extractData('.panchang-data-nakshatra', 2).split(' ')[6] + '|' + extractData('.panchang-data-nakshatra', 2).split(' ')[7] + ' ' + extractData('.panchang-data-nakshatra', 2).split(' ')[8],
+      nextNakshatram: extractData('.panchang-data-nakshatra', 3) || '',
+      nextnakshatraTime: extractData('.panchang-data-nakshatra', 4).split(' ')[6] + '|' + extractData('.panchang-data-nakshatra', 4).split(' ')[7] + ' ' + extractData('.panchang-data-nakshatra', 4).split(' ')[8] || '',
+      rahu: extractData('.panchang-data-inauspicious-period', 2),
+      yamagandam: extractData('.panchang-data-inauspicious-period', 4),
+      kuligai: extractData('.panchang-data-inauspicious-period', 6),
+      Yogam: extractData('.panchang-data-tamil-yoga', 2),
+      Chandrashatama: extractData('.panchang-data-chandrashtama', 1).split(' , ')[0].split(' ')[1],
+      nextChandrashatama: extractData('.panchang-data-chandrashtama', 1).split(' , ')[1] || '',
+   })
   }
 catch (err){
   console.log(err)
