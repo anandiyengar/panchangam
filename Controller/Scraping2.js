@@ -16,11 +16,17 @@ exports.getDetails = async (req, res, next, dateId) => {
     /* Start processing the response */
     let $ = cheerio.load(response);
   
-   const extractData = (selector, index) => {
-  const data = $(selector).text().split('\n').filter(item => item.trim() !== '' && item !== '-' && item !== '  ')[index];
-  return data !== undefined ? data.trim() : ''; // Apply .trim() only if data is defined
-};
+
+    const extractData = (selector, index) => {
+      const data = $(selector).eq(index).text().trim();
+      return data || '';
+    };
+
     const header = $('.list-wrapper').text().split('\n').filter(item => item.trim() !== '' && item !== '-' && item !== '  ');
+
+    const dayData = extractData('.panchang-data-day', 1);
+    const TamilMonth = dayData.split(',')[1] ? dayData.split(',')[1].trim().split(' ')[0] : '';
+    const date = dayData.split(',')[1] ? dayData.split(',')[1].trim().split(' ')[1] : '';
 
     /* Parse details from the html with query selectors */
     //console.log($('.panchang-data-chandrashtama').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  "))
@@ -31,12 +37,12 @@ exports.getDetails = async (req, res, next, dateId) => {
   let chandrashtama = $('.panchang-data-chandrashtama').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")[1]
   let nakshatraArray = $('.panchang-data-nakshatra').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")
 req.details = {
-            Sunrise: header[5],
+      Sunrise: header[5],
       Sunset: header[7],
       Ayanam: header[13],
-      day: extractData('.panchang-data-day', 1),
-      TamilMonth: extractData('.panchang-data-day', 1).split(',')[1]?.trim().split(' ')[0] || '',
-      date: extractData('.panchang-data-day', 1).split(',')[1]?.trim().split(' ')[1] || '',
+      day: dayData,
+      TamilMonth: TamilMonth,
+      date: date,
       Paksham: extractData('.panchang-data-tithi', 1).split(' ')[0],
       tithi: extractData('.panchang-data-tithi', 1).split(' ')[2],
       tithiTime: extractData('.panchang-data-tithi', 2).split(' ')[6] + '|' + extractData('.panchang-data-tithi', 2).split(' ')[7] + ' ' + extractData('.panchang-data-tithi', 2).split(' ')[8],
@@ -52,7 +58,7 @@ req.details = {
       Yogam: extractData('.panchang-data-tamil-yoga', 2),
       Chandrashatama: extractData('.panchang-data-chandrashtama', 1).split(' , ')[0].split(' ')[1],
       nextChandrashatama: extractData('.panchang-data-chandrashtama', 1).split(' , ')[1] || '',
-  
+   
 }
 
   }
