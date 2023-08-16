@@ -15,68 +15,12 @@ exports.getDetails = async (req, res, next, dateId) => {
   
     /* Start processing the response */
     let $ = cheerio.load(response);
-  
-    const getAccessToken = async (clientId='6615faaf-56e9-42fd-bdc0-3326ad783f22', clientSecret='hzVrQkkgFngYx6GCmpSZz75fzaMTmIp972PZ3ZHu') => {
-        const options = {
-          url: 'https://api.prokerala.com/token',
-          method: 'POST',
-          headers: {
-            'Host': 'api.prokerala.com',
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`,
-        };
-      
-        const response = await request(options);
-      
-        if (response.statusCode === 200) {
-          const data = JSON.parse(response.body);
-          console.log("hhh",data)
-          return data.access_token;
-        } else {
-          throw new Error(response.statusMessage);
-        }
-      };
-
-      const getPanchang = async (accessToken, location, date) => {
-        const options = {
-          url: 'https://api.prokerala.com/v2/astrology/panchang/advanced',
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${accessToken}`,
-            'Content-Type': 'application/json',
-          },
-          params: {
-            location: location,
-            date: date,
-          },
-        };
-      
-        const response = await request(options);
-      
-        if (response.statusCode === 200) {
-          const data = JSON.parse(response.body);
-          return data;
-        } else {
-          throw new Error(response.statusMessage);
-        }
-      };
-      
-      const main = async () => {
-        const accessToken = getAccessToken();
-        const location = 'Chennai, IN';
-        const dateN = '2023-08-16';
-      
-        const panchang = await getPanchang(accessToken, location, dateN);
-        console.log(panchang);
-      }
-      main()
-
+ 
     const extractData = (selector, index) => {
       const data = $(selector).eq(index).text().trim();
       return data || '';
     };
-
+console.log("llll",$)
     const header = $('.list-wrapper').text().split('\n').filter(item => item.trim() !== '' && item !== '-' && item !== '  ');
 
     const dayData = extractData('.panchang-data-day', 1);
