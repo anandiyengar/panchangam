@@ -25,8 +25,7 @@ const Mob = () => {
                 if(res.Tithi.split(" ")[0] === t.split(" ")[0].trim()){
                     
                     setTIndex(ind)
-                    
-            console.log("Tithi",TithiCall[ind])
+
             setTithi(TithiCall[ind])
                 }
                 if(res?.NextTithi && res?.NextTithi?.split(" ")[0] === t.split(" ")[0]){
@@ -39,8 +38,6 @@ const Mob = () => {
             
             nextDay.setDate(nextDay.getDate()+1);
             setAdditionalInfoState(week_of_day_arr[nextDay.getDay()] + ", " + nextDay.getDate() + " " + montharray[nextDay.getMonth()])
-    
-            console.log("TIME ",datas.Time)
         }).catch((err)=>{
             console.log(err)
         })

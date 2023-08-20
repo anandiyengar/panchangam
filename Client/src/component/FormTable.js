@@ -35,9 +35,7 @@ useEffect(()=>{
                 setError(res.error)
             }
             else{
-              console.log("data", res[res.length-1])
                 return setData(res)
-                console.log("data", res)
             }
         }
     )

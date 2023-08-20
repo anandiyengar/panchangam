@@ -15,7 +15,6 @@ exports.getDetails1 = async (req, res, next, dateId) => {
 
   /* Parse details from the html with query selectors */
   let fullName = $('section .bo').text().split("\n").filter(item => (item !== '' && item !== '-'));
-  console.log(fullName)
   const Day = fullName[0].split(" ")
   const wd = Day[3].split("(")[1].split(")")[0]
   if(fullName[6] === "Rahu Kalam")

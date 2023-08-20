@@ -364,7 +364,7 @@ onChange={e=>setValues({...values,kuligai:e.target.value})}
 <div className="form-group boxed">
 <input type="text" className="form-control" value={NextChandrashtamam} onChange = {e =>{
   setValues({...values, NextChandrashtamam:e.target.value})
-  console.log(Chandrashtamam)} }/>
+  } }/>
   <span>Current Next Chandrashtamam :{NextChandrashtamam}</span>
 </div>
 
