@@ -25,9 +25,7 @@ const TextView = () => {
 
                 if(res.Tithi.split(" ")[0] === t.split(" ")[0].trim()){
                     
-                    setTIndex(ind)
-                    
-            console.log("Tithi",TithiCall[ind])
+            setTIndex(ind)
             setTithi(TithiCall[ind])
                 }
                 if(res?.NextTithi && res?.NextTithi?.split(" ")[0] === t.split(" ")[0]){

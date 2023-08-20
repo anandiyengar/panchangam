@@ -275,8 +275,6 @@ const dateCall2 = () => {
       
       if(e.target.value.split("/")[0].toLowerCase().trim() == mu.split("/")[0].toLowerCase().trim()){
         
-      console.log("array",mu)
-      console.log("target",e.target.value)
         if(Index === 26){
           setNextChandrashtamam(ChandrashtamamArray[0])
           setChandrashtamam(e.target.value)
@@ -285,8 +283,6 @@ const dateCall2 = () => {
               setChandrashtamam(e.target.value)
         }
       }else{
-        console.log("arraynp",mu)
-      console.log("targetnp",e.target.value)
       }
     })
   }
@@ -297,8 +293,6 @@ const dateCall2 = () => {
       
       if(e.target.value.split("/")[0].toLowerCase().trim() == mu.split("/")[0].toLowerCase().trim()){
         
-      console.log("array",mu)
-      console.log("target",e.target.value)
         if(Index === 14 || Index === 15){
           setNextTithi(TithiArray[0])
           setTithi(e.target.value)
@@ -306,9 +300,6 @@ const dateCall2 = () => {
           setNextTithi(TithiArray[Index+1])
               setTithi(e.target.value)
         }
-      }else{
-        console.log("arraynp",mu)
-      console.log("targetnp",e.target.value)
       }
     })
   }
@@ -319,8 +310,6 @@ const dateCall2 = () => {
       
       if(e.target.value.split("/")[0].toLowerCase().trim() == mu.split("/")[0].toLowerCase().trim()){
         
-      console.log("array",mu)
-      console.log("target",e.target.value)
         if(Index === 14 || Index === 15){
           setNextNakshatram(NakshatramArray[0])
           setNakshatram(e.target.value)
@@ -328,9 +317,6 @@ const dateCall2 = () => {
           setNextNakshatram(NakshatramArray[Index+1])
               setNakshatram(e.target.value)
         }
-      }else{
-        console.log("arraynp",mu)
-      console.log("targetnp",e.target.value)
       }
     })
   }

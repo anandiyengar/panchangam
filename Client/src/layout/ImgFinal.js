@@ -24,7 +24,6 @@ const ImgFinal = () => {
                     
                     setTIndex(ind)
                     
-            console.log("Tithi",TithiCall[ind])
             setTithi(TithiCall[ind])
                 }
                 if(res.NextTithi && res.NextTithi.split(" ")[0] === t.split(" ")[0]){

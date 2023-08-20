@@ -48,7 +48,6 @@ export const getDateData1 = (data) => {
 export const submitData = (data) => {
     const token = JSON.parse(localStorage.getItem("panchangam")).token
     const user = JSON.parse(localStorage.getItem("panchangam")).user.id
-    console.log(data)
     return fetch(`${API}/form/create/${user}`,{
         method:"post",
         headers:{
@@ -100,7 +99,6 @@ export const removeForm = (formId) => {
 
 export const getAllData = (data) => {
     const formId = data.formId
-    console.log(data)
     return fetch(`${API}/form/${formId}`,{
         method:"get",
         headers:{
@@ -108,7 +106,6 @@ export const getAllData = (data) => {
             "content-type":"application/json"
         },
     }).then((res)=>{
-        console.log("res", res)
         return res.json()
     }).catch((err)=>{
         console.log(err)

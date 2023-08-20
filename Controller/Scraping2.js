@@ -20,7 +20,6 @@ exports.getDetails = async (req, res, next, dateId) => {
       const data = $(selector).eq(index).text().trim();
       return data || '';
     };
-console.log("llll",$)
     const header = $('.list-wrapper').text().split('\n').filter(item => item.trim() !== '' && item !== '-' && item !== '  ');
 
     const dayData = extractData('.panchang-data-day', 1);
@@ -28,7 +27,6 @@ console.log("llll",$)
     const date = dayData.split(',')[1] ? dayData.split(',')[1].trim().split(' ')[1] : '';
 
     /* Parse details from the html with query selectors */
-    //console.log($('.panchang-data-chandrashtama').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  "))
   let BadTime = $('.panchang-data-inauspicious-period').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")
   let TamilDay = $('.panchang-data-day').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")[1]
   let tithiArray = $('.panchang-data-tithi').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")
