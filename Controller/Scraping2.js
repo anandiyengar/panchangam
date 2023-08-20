@@ -9,7 +9,7 @@ exports.getDetails = async (req, res, next, dateId) => {
 
 
   try{let BASE_URL = `https://www.prokerala.com/astrology/tamil-panchangam/${dateId}.html`
-  
+
     /* Send the request to the user page and get the results */
     let response = await request(`${BASE_URL}`);
   
@@ -22,7 +22,9 @@ exports.getDetails = async (req, res, next, dateId) => {
     };
     const header = $('.list-wrapper').text().split('\n').filter(item => item.trim() !== '' && item !== '-' && item !== '  ');
 
-    const dayData = extractData('.panchang-data-day', 1);
+    const dayData = $('.panchang-data-day li:first-child span:not(.b)').first().contents().filter(function() {
+      return this.nodeType === 3;
+    }).text().trim();
     const TamilMonth = dayData.split(',')[1] ? dayData.split(',')[1].trim().split(' ')[0] : '';
     const date = dayData.split(',')[1] ? dayData.split(',')[1].trim().split(' ')[1] : '';
 
@@ -31,7 +33,10 @@ exports.getDetails = async (req, res, next, dateId) => {
   let TamilDay = $('.panchang-data-day').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")[1]
   let tithiArray = $('.panchang-data-tithi').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")
   let yogam = $('.panchang-data-tamil-yoga').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")[2]
-  let chandrashtama = $('.panchang-data-chandrashtama').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")[1]
+  let chandrashtamaRaw = $('.panchang-data-chandrashtama').text().trim().split('\n')[6].trim().split(',')[0]
+  let chandrashtama = chandrashtamaRaw
+                      .replace(/^\d+\.\s+/, '') // Remove the leading "1. "
+                      .replace(/\s+Last 2 padam$/, ''); // Remove "Last 2 padam" at the end
   let nakshatraArray = $('.panchang-data-nakshatra').text().split('\n').filter(item=>item.trim()!=''&&item!==" "&&item!=="-"&& item!== "  ")
 req.details = {
   Sunrise: header[5].trim(),
@@ -53,7 +58,7 @@ req.details = {
   yamagandam:$('.panchang-data-inauspicious-period').text().trim().split('\n')[14].trim(),
   kuligai: $('.panchang-data-inauspicious-period').text().trim().split('\n')[21].trim(),
   Yogam: $('.panchang-data-tamil-yoga').text().trim().split('\n')[6].trim(),
-  Chandrashatama: $('.panchang-data-chandrashtama').text().trim().split('\n')[6].trim().split(',')[0],
+  Chandrashatama: chandrashtama,
   nextChandrashatama:$('.panchang-data-chandrashtama').text().trim().split('\n')[6].trim().split(',')[1],
 
 }

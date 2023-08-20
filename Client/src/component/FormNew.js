@@ -372,7 +372,7 @@ const dateCall2 = () => {
 </div>
 <div className="form-group boxed">
   <label>Select Tamil Month: </label>
-   <select className="form-control" name="TamilMonth" value={tamilMonth}>
+   <select className="form-control" name="TamilMonth" value={tamilMonth} onChange={e=>setTamilMonth(TamilMonthArray[e.target.value])}>
    {TamilMonthArray && TamilMonthArray.map((tm,Index)=>(
      <option key={Index}>{tm}</option>
    ))}
@@ -381,13 +381,13 @@ const dateCall2 = () => {
 
 <div className="form-group boxed">
   <label>Select Tamil Date:  </label>
-   <select className="form-control" value={tamilDate}>
+   <select className="form-control" value={tamilDate} onChange={e=>setTamilDate(e.target.value)}>
    <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>21</option><option>22</option><option>23</option><option>24</option><option>25</option><option>26</option><option>27</option><option>28</option><option>29</option><option>30</option><option>31</option><option>32</option>  </select>
 </div>
 
 <div className="form-group boxed">
    <label>Select Tamil Day: </label>
-   <select className="form-control" value={tamilDay}>
+   <select className="form-control" value={tamilDay} onChange={e=>setTamilDay(TamilDaysArray[[new Date(e.target.value).getDay()]])}>
     <option>MONDAY/திங்கள்</option>
     <option>TUESDAY/செவ்வாய்</option>
     <option>WEDNESDAY/புதன்</option>
