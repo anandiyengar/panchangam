@@ -18,7 +18,7 @@ const FormNew = () => {
   const [tamilDay,setTamilDay] = useState("")
   const [tamilDate,setTamilDate] = useState("")
   const [note1,setNote1] = useState("")
-  const [note2,setNote2] = useState("Saarvari nama samvatsare/சார்வரி நாம ஸம்வத்ஸரே")
+  const [note2,setNote2] = useState("Sobakrith nama samvatsare/சோபகிருத் நாம ஸம்வத்ஸரே")
   const [ayanam,setAyanam] = useState("")
   const [ruthou,setRuthou] = useState("")
   const [mase,setMase] = useState("")
@@ -129,7 +129,7 @@ const FormNew = () => {
     })
     setNextNakshatram((apiNextNakshatram!='')?NakshatramArray[apiNextNakshatram[0].split("/")[1]]:"")
     //  Nakshatra Time
-    setTime2(dd.nakshatraTime ? dd.nakshatraTime.split("|")[1].split(" ")[0] : "")
+    setTime2(dd.nakshatraTime ? dd.nakshatraTime.split("–")[1].split(" ")[0] : "")
     setTime2Am(dd.nakshatraTime ? dd.nakshatraTime.split(" ")[1] : "")
     // Yogam
     const apiYogam = YogamArray && YogamArray.map((r)=>{
