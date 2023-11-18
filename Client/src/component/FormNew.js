@@ -4,7 +4,7 @@ import {TamilYearArray, TamilMonthArray,TithiArray, TamilDaysArray, NakshatramAr
 import { getDateData, submitData, getAllData, getALlUserForms, getDateData1 } from '../helper/AllHelp';
 import { toast } from 'react-toastify';
 import { Redirect } from 'react-router-dom';
-import { AyanamApi, TithiApi, PaksheApi, TamilMonthAPI, NakshatramApi } from '../helper/ApiArray';
+import { AyanamApi, TithiApi, PaksheApi, TamilMonthAPI, NakshatramApi, ChandrashtamamApi } from '../helper/ApiArray';
 
 const FormNew = () => {
   const VasaramArray = ["Bhanu Vasaram / பானு வாஸரம்",  "Indhu Vasaram / இந்து வாஸரம்","Bouma Vasaram / பௌம வாஸரம்",
@@ -52,7 +52,6 @@ const FormNew = () => {
   const [t1, setT1] = useState({hour: "", min:"", timeOfDay: ""})
   const [t, setT] = useState({hour: "", min:"", timeOfDay: ""})
   const [v, setV] = useState(true)
-  
  const [arr, setArr] = useState([])
   
   const dateCall = (e) => {
@@ -71,8 +70,16 @@ const FormNew = () => {
         })
         setTithi(TithiArray[apiTithi[0].split("/")[1]])
         // Tithi Time
-        setTime(dd.tithiTime ? dd.tithiTime.split(" ")[0].split("|")[1] : "")
-        setTimeAm(dd.tithiTime ? dd.tithiTime.split(" ")[1] : "")
+        const timeRegex = /\b\d{2}:\d{2}\b/g;
+        const tithiTime = dd.tithiTime.match(timeRegex);
+        const AMPMRegex = /\b[AP]M\b/g;
+        const tithiTimeampm = dd.tithiTime.match(AMPMRegex);
+
+        if (tithiTime && tithiTime.length >= 2 && tithiTimeampm && tithiTimeampm.length >= 2) {
+          setTime(tithiTime[0] ?? "")
+          setTimeAm(tithiTimeampm[0] ?? "")
+        }
+        
         //  Next Tithi
         const apiNextTithi = TithiApi && TithiApi.filter((r)=>{
             return r.split("/")[0].toLowerCase() === dd.NextTithi.toLowerCase()   
@@ -125,12 +132,30 @@ const FormNew = () => {
     setNakshatram(NakshatramArray[apiNakshatram[0].split("/")[1]])
     // Next Nakshatram
     const apiNextNakshatram = NakshatramApi && NakshatramApi.filter((r)=>{
-        return r.split("/")[0].toLowerCase() === dd.nextNakshatram.toLowerCase()   
+      return r.split("/")[0].toLowerCase() === dd.nextNakshatram.toLowerCase()   
     })
     setNextNakshatram((apiNextNakshatram!='')?NakshatramArray[apiNextNakshatram[0].split("/")[1]]:"")
     //  Nakshatra Time
-    setTime2(dd.nakshatraTime ? dd.nakshatraTime.split("–")[1].split(" ")[0] : "")
-    setTime2Am(dd.nakshatraTime ? dd.nakshatraTime.split(" ")[1] : "")
+    const nakshatraTime = dd.nakshatraTime.match(timeRegex);
+    const nakshatraTimeampm = dd.nakshatraTime.match(AMPMRegex);
+    
+    if (nakshatraTime && nakshatraTime.length >= 2 && nakshatraTimeampm && nakshatraTimeampm.length >= 2) {
+      setTime2(nakshatraTime[0] ?? "")
+      setTime2Am(nakshatraTimeampm[0] ?? "")
+    }
+    
+    // Chandrashatama
+    const apiChandrashatama = ChandrashtamamApi && ChandrashtamamApi.filter((r)=>{
+      return r.split("/")[0].toLowerCase() === dd.Chandrashatama.toLowerCase()   
+    });
+    const indexC = (apiChandrashatama.length > 0) ? apiChandrashatama[0].split("/")[1] : 0;
+    setChandrashtamam(ChandrashtamamArray[indexC]);
+    if(indexC === 26){
+      setNextChandrashtamam(ChandrashtamamArray[0])
+    }else{
+      setNextChandrashtamam(ChandrashtamamArray[indexC+1])
+    }
+    
     // Yogam
     const apiYogam = YogamArray && YogamArray.map((r)=>{
         if(dd.Yogam[0].toLowerCase()==='m'){
@@ -280,7 +305,7 @@ const dateCall2 = () => {
           setChandrashtamam(e.target.value)
         }else{
           setNextChandrashtamam(ChandrashtamamArray[Index+1])
-              setChandrashtamam(e.target.value)
+          setChandrashtamam(e.target.value)
         }
       }else{
       }
@@ -336,7 +361,7 @@ const dateCall2 = () => {
       setV(false)
     }
   }
-  
+
     return(
 <Base>
 {loading && (
@@ -621,11 +646,9 @@ onChange={e=>setKuligai(e.target.value)}
 
   <div className="form-group boxed">
    <label>Select Chandrashtamam: </label>
-   <select className="form-control" value={chandrashtamam} name ="Chandrashtamam" 
-   defaultValue = {chandrashtamam}
-   onChange={chandraChange} >
+   <select className="form-control" value={chandrashtamam} name="Chandrashtamam" defaultValue={chandrashtamam} onChange={chandraChange}>
    {ChandrashtamamArray && ChandrashtamamArray.map((ta,Index,element)=>(
-     <option>{ta}</option>
+     <option key={Index}>{ta}</option>
    ))}
   </select>
 </div>
