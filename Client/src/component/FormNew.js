@@ -362,8 +362,6 @@ const dateCall2 = () => {
     }
   }
 
-  console.log(note2);
-
     return(
 <Base>
 {loading && (
@@ -460,7 +458,7 @@ onChange={e=>setNote1(e.target.value)}
 
 <div className="form-group boxed">
  <label>  Select Tamil Year:</label> 
- <select className="form-control test" value={note2} name ="Note2" defaultValue = {note2}
+ <select className="form-control" value={note2} name ="Note2" defaultValue = {note2}
  onChange={e=>setNote2(e.target.value)}
  >
    {TamilYearArray && TamilYearArray.map((ta,Index)=>(
