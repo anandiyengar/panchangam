@@ -1,11 +1,5 @@
 import {API} from './backend'
-localStorage.setItem("panchangam", JSON.stringify({
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjM4MzJkMjY3M2NlNzAwMTc5MDhlYmYiLCJpYXQiOjE2OTI1NTU3NTd9.6xEKFNUaUSwGoTpyHDlG0xQPz658f86TW_fLqz0C2R8",
-    "user": {
-        "id": "5f3832d2673ce70017908ebf",
-        "email": "simhan@panchangam.com"
-    }
-}));
+
 export const getDateData = (data) => {
     const token = JSON.parse(localStorage.getItem("panchangam")).token
     return fetch(`${API}/scrape-api/${data}`,{
